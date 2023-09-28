@@ -1,0 +1,41 @@
+create database productmanagenet;
+use productmanagenet;
+
+create table categories(
+    id bigint not null primary key,
+    name varchar(255) not null,
+    description varchar(255) not null
+);
+
+create table products(
+    id bigint not null primary key,
+    name varchar(255) not null,
+    price int default 0,
+    category_id bigint not null,
+    description varchar(255) not null,
+    CONSTRAINT category_product foreign key(category_id) references categories(id)
+)
+
+INSERT INTO categories (id, name, description) VALUES
+(1, 'Category 1', 'Description 1'),
+(2, 'Category 2', 'Description 2'),
+(3, 'Category 3', 'Description 3'),
+(4, 'Category 4', 'Description 4'),
+(5, 'Category 5', 'Description 5'),
+(6, 'Category 6', 'Description 6'),
+(7, 'Category 7', 'Description 7'),
+(8, 'Category 8', 'Description 8'),
+(9, 'Category 9', 'Description 9'),
+(10, 'Category 10', 'Description 10');
+
+INSERT INTO products (id, name, price, category_id, description) VALUES
+(1, 'Product 1', 100, 1, 'Description 1'),
+(2, 'Product 2', 200, 2, 'Description 2'),
+(3, 'Product 3', 300, 3, 'Description 3'),
+(4, 'Product 4', 400, 4, 'Description 4'),
+(5, 'Product 5', 500, 5, 'Description 5'),
+(6, 'Product 6', 600, 6, 'Description 6'),
+(7, 'Product 7', 700, 7, 'Description 7'),
+(8, 'Product 8', 800, 8, 'Description 8'),
+(9, 'Product 9', 900, 9, 'Description 9'),
+(10, 'Product 10', 1000, 10, 'Description 10');
